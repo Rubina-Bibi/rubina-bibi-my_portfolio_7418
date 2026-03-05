@@ -76,17 +76,17 @@
             </div>
             <div class="skills-container">
                 {% for skill in skills %}
-                <div class="skill-box">
-                    <div class="skill-info">
-                        <span class="skill-name">{{ skill[0] }}</span>
-                        <span class="skill-percent">{{ skill[2] }}%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: {{ skill[2] }}%"></div>
-                    </div>
-                    <span class="skill-cat">{{ skill[1] }}</span>
-                </div>
-                {% endfor %}
+<div class="skill-box">
+    <div class="skill-info">
+        <span class="skill-name">{{ skill.name }}</span>
+        <span class="skill-percent">{{ skill.level }}%</span>
+    </div>
+    <div class="progress-bar">
+        <div class="progress-fill" style="width: {{ skill.level }}%"></div>
+    </div>
+    <span class="skill-cat">{{ skill.category }}</span>
+</div>
+{% endfor %}
             </div>
         </div>
     </section>
@@ -99,23 +99,23 @@
             </div>
             <div class="projects-grid">
                 {% for project in projects %}
-                <div class="project-card">
-                    <div class="project-img">
-                        <img src="{{ url_for('static', path='images/project1.jpg') }}" alt="{{ project[0] }}" onerror="this.src='https://placehold.co/400x250/6366f1/ffffff?text=Project'">
-                        <div class="project-overlay">
-                            <a href="{{ project[2] }}" target="_blank" class="github-btn"><i class="fab fa-github"></i> View Code</a>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3>{{ project[0] }}</h3>
-                        <p>{{ project[1] }}</p>
-                        <div class="project-tags">
-                            <span class="tag">Mobile Dev</span>
-                            <span class="tag">UI/UX</span>
-                        </div>
-                    </div>
-                </div>
-                {% endfor %}
+<div class="project-card">
+    <div class="project-img">
+        <img src="{{ project.image }}" alt="{{ project.name }}" onerror="this.src='https://placehold.co/400x250/6366f1/ffffff?text=Project'">
+        
+        <div class="project-overlay">
+            <a href="{{ project.url }}" target="_blank" class="github-btn">
+                <i class="fab fa-github"></i> View Code
+            </a>
+        </div>
+    </div>
+    
+    <div class="project-info">
+        <h3>{{ project.name }}</h3>
+        <p>{{ project.desc }}</p>
+    </div>
+</div>
+{% endfor %}
             </div>
         </div>
     </section>
